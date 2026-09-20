@@ -1,0 +1,38 @@
+export type InsiderRole = "CEO" | "CFO" | "Director" | "Officer";
+
+export type TransactionType = "purchase" | "sale";
+
+export type TransactionCode = "P" | "S";
+
+export type SignalStrength = "High" | "Medium" | "Low";
+
+export type InsiderTrade = {
+  id: string;
+
+  ticker: string;
+  company: string;
+  sector: string;
+
+  insider: string;
+  role: InsiderRole;
+
+  type: TransactionType;
+  transactionCode: TransactionCode;
+  shares: number;
+  pricePerShare: number;
+  value: number;
+
+  transactionDate: string;
+  filedAt: string;
+
+  signal: string;
+  signalStrength: SignalStrength;
+
+  weeklyActivity?: number[];
+};
+
+export type RootStackParamList = {
+  Home: undefined;
+  Screener: undefined;
+  TradeDetails: { TradeId: string };
+};
