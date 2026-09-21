@@ -28,11 +28,11 @@ export default function TradeCard({
     <Pressable onPress={onPress} className=" bg-surface mb-3 rounded-2xl p-5 flex-row justify-between">
       <View className="">
         <View className=" flex-row items-center mb-2">
-          <Text className=" text-text-primary font-extrabold text-4xl">{ticker}</Text>
-          <View className=" flex-row">
+          <Text className=" text-text-primary font-extrabold text-3xl">{ticker}</Text>
+          <View className=" flex-row items-center justify-center">
             <Entypo
               name={transactionCode === "P" ? "arrow-long-up" : "arrow-long-down"}
-              size={16}
+              size={12}
               color={transactionCode === "S" ? colors.sale : colors.purchase}
             />
             <Text className={`${transactionCode === "S" ? "text-sale" : "text-purchase"} `}>
@@ -40,8 +40,8 @@ export default function TradeCard({
             </Text>
           </View>
         </View>
-        <Text className="text-text-secondary mb-2 text-lg">{company}</Text>
-        <Text className=" text-text-secondary mb-2 text-lg">
+        <Text className="text-text-secondary mb-1 text-lg">{company}</Text>
+        <Text className=" text-text-secondary mb-1 text-base">
           {insider} . {role}
         </Text>
         <Text className=" text-text-secondary text-lg"> Filed: {filedAt}</Text>

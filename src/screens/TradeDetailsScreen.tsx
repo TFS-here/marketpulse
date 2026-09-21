@@ -51,51 +51,51 @@ export default function TradeDetailsScreen({ route, navigation }: props) {
             <Text className=" text-text-secondary text-lg">Fictional Demo {isPurchase ? "Buy" : "Sale"}</Text>
           </View>
 
-          <View className=" flex-row justify-between gap-2 mt-5">
-            <View className=" bg-surface flex-1 rounded-xl p-5">
+          <View className=" flex-row justify-between gap-2 mt-3">
+            <View className=" bg-surface flex-1 rounded-xl p-3">
               <Text className=" text-text-secondary text-lg">Insider</Text>
-              <Text className=" text-text-primary text-xl">
+              <Text className=" text-text-primary text-base">
                 {trade?.insider} . {trade?.role}
               </Text>
             </View>
-            <View className=" bg-surface flex-1 rounded-xl p-5">
+            <View className=" bg-surface flex-1 rounded-xl p-3">
               <Text className="text-text-secondary text-lg">Transaction</Text>
-              <Text className=" text-text-primary text-xl">
+              <Text className=" text-text-primary text-base">
                 {isPurchase ? "Purchase ↑" : "Sale ↓"} . Code {trade?.transactionCode}
               </Text>
             </View>
           </View>
 
-          <View className=" flex-row justify-between gap-2 mt-5">
-            <View className=" bg-surface flex-1 rounded-xl p-5">
+          <View className=" flex-row justify-between gap-2 mt-3">
+            <View className=" bg-surface flex-1 rounded-xl p-3">
               <Text className=" text-text-secondary text-lg">Shares</Text>
-              <Text className=" text-text-primary text-xl">{trade?.shares.toLocaleString()} shares</Text>
+              <Text className=" text-text-primary text-base">{trade?.shares.toLocaleString()} shares</Text>
             </View>
-            <View className=" bg-surface flex-1 rounded-xl p-5">
+            <View className=" bg-surface flex-1 rounded-xl p-3">
               <Text className="text-text-secondary text-lg">Price/Share</Text>
-              <Text className=" text-text-primary text-xl">{formatCurrancy(trade?.pricePerShare)} (demo)</Text>
+              <Text className=" text-text-primary text-base">{formatCurrancy(trade?.pricePerShare)} (demo)</Text>
             </View>
           </View>
 
-          <View className=" flex-row justify-between gap-2 mt-5">
-            <View className=" bg-surface flex-1 rounded-xl p-5">
+          <View className=" flex-row justify-between gap-2 mt-3">
+            <View className=" bg-surface flex-1 rounded-xl p-3">
               <Text className=" text-text-secondary text-lg">Total value</Text>
-              <Text className=" text-text-primary text-xl">{formatCurrancy(trade?.value)} (demo)</Text>
+              <Text className=" text-text-primary text-base">{formatCurrancy(trade?.value)} (demo)</Text>
             </View>
-            <View className=" bg-surface flex-1 rounded-xl p-5">
+            <View className=" bg-surface flex-1 rounded-xl p-3">
               <Text className="text-text-secondary text-lg">Signal strength</Text>
-              <Text className=" text-text-primary text-xl">{trade?.signalStrength}</Text>
+              <Text className=" text-text-primary text-base">{trade?.signalStrength}</Text>
             </View>
           </View>
 
-          <View className=" flex-row justify-between gap-2 mt-5">
-            <View className=" bg-surface flex-1 rounded-xl p-5">
+          <View className=" flex-row justify-between gap-2 mt-3">
+            <View className=" bg-surface flex-1 rounded-xl p-3">
               <Text className=" text-text-secondary text-lg">Transaction date</Text>
-              <Text className=" text-text-primary text-xl">{formatDate(trade.transactionDate)}</Text>
+              <Text className=" text-text-primary text-base">{formatDate(trade.transactionDate)}</Text>
             </View>
-            <View className=" bg-surface flex-1 rounded-xl p-5">
+            <View className=" bg-surface flex-1 rounded-xl p-3">
               <Text className="text-text-secondary text-lg">Filed</Text>
-              <Text className=" text-text-primary text-xl">
+              <Text className=" text-text-primary text-base">
                 {formatDate(trade.filedAt)} . {formatTime(trade.filedAt)}
               </Text>
             </View>
@@ -110,9 +110,9 @@ export default function TradeDetailsScreen({ route, navigation }: props) {
           <View className=" bg-surface mt-5 p-5">
             <Text className=" text-text-primary"> Why this matter?</Text>
             <Text className=" text-text-secondary mt-4">
-              A senior executive purchase can be a data point for further research because it shows a disclosed
-              transaction by someone close to the company. It does not reveal the person’s full financial situation or
-              predict future performance.
+              A {trade.signal} can be a data point for further research because it shows a disclosed transaction by
+              someone close to the company. It does not reveal the person’s full financial situation or predict future
+              performance.
             </Text>
           </View>
 

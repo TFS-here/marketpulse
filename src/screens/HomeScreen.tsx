@@ -57,7 +57,7 @@ export default function HomeScreen({ navigation }: props) {
           onPress={() => navigation.navigate("Screener")}
           accessibilityRole="button"
           accessibilityLabel="Search trades in screener"
-          className=" bg-surface p-4 rounded-2xl border border-slate-700 flex flex-row justify-between items-center">
+          className=" bg-surface p-2 rounded-2xl mb-3 border border-slate-700 flex flex-row justify-between items-center">
           <View className=" flex-row">
             <Feather name="search" size={24} color="#CBD5E1" />
             <Text className=" text-text-secondary ml-3 text-xl"> Search ticker or company</Text>
@@ -67,7 +67,7 @@ export default function HomeScreen({ navigation }: props) {
         </Pressable>
 
         {/* Overview */}
-        <View className=" my-5 flex-row gap-2">
+        <View className=" mb-3 flex-row gap-2">
           <SummaryCard label="Transaction" value={`${totalTransaction}`} colorClass="text-analytics" />
           <SummaryCard label="Purchase value" value={`${formatCurrancy(totalPurchase)}`} colorClass="text-purchase" />
           <SummaryCard label="Sale value" value={`${formatCurrancy(totalSale)}`} colorClass="text-sale" />
@@ -75,7 +75,7 @@ export default function HomeScreen({ navigation }: props) {
 
         {/* Top Signals */}
         <View>
-          <Text className=" text-text-primary text-2xl font-bold">Top Signals Today</Text>
+          <Text className=" text-text-primary text-lg  font-bold">Top Signals Today</Text>
           <View className="my-5 flex-row gap-2">
             {topSignals.map((signal) => (
               <View key={signal.name} className=" flex-1 bg-surface p-5 rounded-2xl border-1 border-slate-700/60">
@@ -88,7 +88,7 @@ export default function HomeScreen({ navigation }: props) {
                     {signal.count === 1 ? "signal" : "signals"}
                   </Text>
                 </View> */}
-                <Text className=" text-text-secondary text-xl font-bold" numberOfLines={2}>
+                <Text className=" text-text-secondary text-base font-bold" numberOfLines={2}>
                   {signal.name}
                 </Text>
               </View>
@@ -97,14 +97,14 @@ export default function HomeScreen({ navigation }: props) {
         </View>
         {/* Latest Activity */}
         <View>
-          <View className="flex flex-row justify-between items-center">
-            <Text className=" text-text-primary text-2xl font-bold">Latest Activity</Text>
+          <View className="flex flex-row justify-between mb-3 items-center">
+            <Text className=" text-text-primary text-lg font-bold">Latest Activity</Text>
             <Pressable
               onPress={() => navigation.navigate("Screener")}
               accessibilityRole="button"
               accessibilityLabel="view all">
               <View className=" flex-row items-center">
-                <Text className=" text-analytics text-xl font-bold">View All</Text>
+                <Text className=" text-analytics text-lg font-bold">View All</Text>
                 <MaterialIcons name="arrow-right-alt" size={20} color={colors.analytics} />
               </View>
             </Pressable>

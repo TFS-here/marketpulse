@@ -15,7 +15,7 @@ export default function FilterChip({ label, selected, onPress }: FilterChipProps
       accessibilityState={{ selected }}
       accessibilityLabel={`Filter: ${label}`}
       className={` rounded-xl border-1 border-slate-700/60 items-center justify-center flex-1   ${selected ? "bg-analytics/30" : "bg-surface"} `}>
-      <Text className=" text-text-secondary p-4 text-xl font-bold"> {label}</Text>
+      <Text className=" text-text-secondary p-2 text-base font-bold"> {label}</Text>
     </Pressable>
   );
 }

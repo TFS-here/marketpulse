@@ -22,7 +22,7 @@ export default function ScreenerScreen({ navigation }: props) {
     setSearch("");
     setTransactionFilter("All");
     setRoleFilter("All Roles");
-    setValueFilter("Any");
+    setValueFilter(0);
   };
 
   const filterTrade = mockTrades.filter((trades) => {
@@ -32,7 +32,7 @@ export default function ScreenerScreen({ navigation }: props) {
 
     const matchTransaction = transactionFilter === "All" || trades.type === transactionFilter;
     const matchRole = roleFilter === "All Roles" || trades.role === roleFilter;
-    const matchValue = valueFilter === "Any" || trades.value >= Number(valueFilter);
+    const matchValue = valueFilter === 0 || trades.value >= Number(valueFilter);
 
     return matchSearch && matchTransaction && matchRole && matchValue;
   });
@@ -43,14 +43,14 @@ export default function ScreenerScreen({ navigation }: props) {
       <View className="flex-row justify-between items-center mb-2">
         <View>
           <Text className="text-analytics2">DISCOVERY</Text>
-          <Text className=" text-text-primary text-3xl font-bold">Latest Trade</Text>
+          <Text className=" text-text-primary text-2xl font-bold">Latest Trade</Text>
         </View>
-        <View>
-          <Entypo name="cross" size={24} color={colors.textSecondary} />
-        </View>
+        <Pressable onPress={() => navigation.goBack()} accessibilityRole="button" accessibilityLabel="cross">
+          <Entypo name="cross" size={16} color={colors.textSecondary} />
+        </Pressable>
       </View>
       {/* Search */}
-      <View className=" flex-row items-center  bg-surface border border-slate-700/60 rounded-xl p-2 justify-center">
+      <View className=" flex-row items-center mb-3  bg-surface border border-slate-700/60 rounded-xl p-1 justify-center">
         <Feather name="search" size={16} color={colors.textSecondary} />
         <TextInput
           className=" flex-1 text-text-secondary ml-2"
@@ -62,7 +62,7 @@ export default function ScreenerScreen({ navigation }: props) {
       </View>
       {/* Transaction */}
       <View>
-        <Text className=" text-text-secondary my-4">Transaction</Text>
+        <Text className=" text-text-secondary mb-3">Transaction</Text>
         <View className=" flex-row justify-between items-center gap-2">
           <FilterChip
             label={"All"}
@@ -104,7 +104,7 @@ export default function ScreenerScreen({ navigation }: props) {
       <View>
         <Text className=" text-text-secondary my-2">Value</Text>
         <View className=" flex-row gap-2">
-          <FilterChip label={"Any"} selected={valueFilter === "0"} onPress={() => setValueFilter("0")} />
+          <FilterChip label={"Any"} selected={valueFilter === 0} onPress={() => setValueFilter(0)} />
           <FilterChip label={"$100K+"} selected={valueFilter === 100000} onPress={() => setValueFilter(100000)} />
           <FilterChip label={"$500K+"} selected={valueFilter === 500000} onPress={() => setValueFilter(500000)} />
           <FilterChip label={"$1M+"} selected={valueFilter === 1000000} onPress={() => setValueFilter(1000000)} />
