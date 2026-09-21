@@ -30,7 +30,11 @@ export default function TradeCard({
         <View className=" flex-row items-center mb-2">
           <Text className=" text-text-primary font-extrabold text-4xl">{ticker}</Text>
           <View className=" flex-row">
-            <Entypo name="arrow-long-up" size={16} color={transactionCode === "S" ? colors.sale : colors.purchase} />
+            <Entypo
+              name={transactionCode === "P" ? "arrow-long-up" : "arrow-long-down"}
+              size={16}
+              color={transactionCode === "S" ? colors.sale : colors.purchase}
+            />
             <Text className={`${transactionCode === "S" ? "text-sale" : "text-purchase"} `}>
               {transactionCode == "S" ? "SALE" : "PURCHASE"}
             </Text>
