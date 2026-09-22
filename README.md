@@ -49,8 +49,8 @@ This is an original mobile concept inspired by the broad StockInsider.io product
 ## Setup
 
 ```bash
-git clone <repository-url>
-cd market-pulse
+git clone https://github.com/TFS-here/marketpulse.git
+cd marketpulse
 npm install
 npx expo start
 ```
